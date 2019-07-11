@@ -1,16 +1,9 @@
-# moving
+flutter movie-app 
+일부 bloc 패턴 적용
+ToDo
+- 검색 결과 갯수 마지막 데이터만 받아서 보여주기
+- searchpage에서 검색 했을때 로딩 위젯 보여주기
+- 그외 약간 이미지 늦게 불러와지는거 고치기
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+앱 시연 영상
+<iframe width="640" height="360" src="https://www.youtube.com/embed/6Az2cNU7gUw" frameborder="0" gesture="media" allowfullscreen=""></iframe>
