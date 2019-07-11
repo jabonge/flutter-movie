@@ -63,12 +63,21 @@ class Carouselcontent extends StatelessWidget {
                   Container(
                     height: 8,
                   ),
-                  Text(
-                    " $vote_average / 10",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                    ),
+                  Row(
+                    children: <Widget>[
+                      Icon(
+                        Icons.star,
+                        color: Colors.yellow,
+                        size: 15.0,
+                      ),
+                      Text(
+                        " $vote_average / 10",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
+                      ),
+                    ],
                   ),
                   Container(
                     height: 8,

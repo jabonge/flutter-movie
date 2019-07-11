@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moving/Bloc/searchBloc.dart';
 import 'package:moving/ui/maintopratecontent.dart';
+import './detailpage.dart';
 
 class searchpage extends StatefulWidget {
   @override
@@ -71,12 +72,23 @@ class _searchpageState extends State<searchpage> {
                     shrinkWrap: true,
                     itemCount: snapshot.data.results.length,
                     itemBuilder: (context, index) {
-                      return topRatedcontent(
-                        description: snapshot.data.results[index].overview,
-                        poster:
-                            "https://image.tmdb.org/t/p/w500${snapshot.data.results[index].posterPath}",
-                        vote_average: snapshot.data.results[index].voteAverage,
-                        title: snapshot.data.results[index].title,
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => detailpage(
+                                        results: snapshot.data.results[index],
+                                      )));
+                        },
+                        child: topRatedcontent(
+                          description: snapshot.data.results[index].overview,
+                          poster:
+                              "https://image.tmdb.org/t/p/w500${snapshot.data.results[index].posterPath}",
+                          vote_average:
+                              snapshot.data.results[index].voteAverage,
+                          title: snapshot.data.results[index].title,
+                        ),
                       );
                     },
                   );

@@ -61,12 +61,21 @@ class topRatedcontent extends StatelessWidget {
                     Container(
                       height: 7,
                     ),
-                    Text(
-                      " $vote_average / 10",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 13,
-                      ),
+                    Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.star,
+                          color: Colors.yellow,
+                          size: 15.0,
+                        ),
+                        Text(
+                          " $vote_average / 10",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 13,
+                          ),
+                        ),
+                      ],
                     ),
                     Container(
                       height: 7,

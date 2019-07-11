@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:moving/Repository/repo.dart';
 import './carouselcontent.dart';
 import './maintopratecontent.dart';
+import './detailpage.dart';
 
 class mainPage2 extends StatefulWidget {
   @override
@@ -29,6 +30,7 @@ class _mainState extends State<mainPage2> {
             case ConnectionState.none:
             case ConnectionState.active:
             case ConnectionState.waiting:
+              return Center(child: CircularProgressIndicator());
             case ConnectionState.done:
               if (asyncSnapshot1.hasError)
                 return Text('Error: ${asyncSnapshot1.error}');
@@ -55,14 +57,25 @@ class _mainState extends State<mainPage2> {
                                     .asMap()
                                     .map((index, results) => MapEntry(
                                         index,
-                                        Carouselcontent(
-                                          title: results.title,
-                                          poster:
-                                              "https://image.tmdb.org/t/p/w500${results.posterPath}",
-                                          back_drop:
-                                              "https://image.tmdb.org/t/p/w500${results.backdropPath}",
-                                          description: results.overview,
-                                          vote_average: results.voteAverage,
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        detailpage(
+                                                          results: results,
+                                                        )));
+                                          },
+                                          child: Carouselcontent(
+                                            title: results.title,
+                                            poster:
+                                                "https://image.tmdb.org/t/p/w500${results.posterPath}",
+                                            back_drop:
+                                                "https://image.tmdb.org/t/p/w500${results.backdropPath}",
+                                            description: results.overview,
+                                            vote_average: results.voteAverage,
+                                          ),
                                         )))
                                     .values
                                     .toList(),
@@ -94,16 +107,27 @@ class _mainState extends State<mainPage2> {
                                   ),
                                 ),
                                 ListView.builder(
-                                  itemCount: list.length,
+                                  itemCount: list2.length,
                                   shrinkWrap: true,
                                   physics: const NeverScrollableScrollPhysics(),
                                   itemBuilder: (context, int index) {
-                                    return topRatedcontent(
-                                      poster:
-                                          "https://image.tmdb.org/t/p/w500${list2[index].posterPath}",
-                                      title: list[index].title,
-                                      description: list[index].overview,
-                                      vote_average: list[index].voteAverage,
+                                    return GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    detailpage(
+                                                      results: list2[index],
+                                                    )));
+                                      },
+                                      child: topRatedcontent(
+                                        poster:
+                                            "https://image.tmdb.org/t/p/w500${list2[index].posterPath}",
+                                        title: list2[index].title,
+                                        description: list2[index].overview,
+                                        vote_average: list2[index].voteAverage,
+                                      ),
                                     );
                                   },
                                 )
