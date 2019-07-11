@@ -6,4 +6,4 @@ ToDo
 - 그외 약간 이미지 늦게 불러와지는거 고치기
 
 앱 시연 영상
-<iframe width="640" height="360" src="https://www.youtube.com/embed/6Az2cNU7gUw" frameborder="0" gesture="media" allowfullscreen=""></iframe>
+<iframe width="640" height="360" src="https://youtu.be/UHt4w0021fk" frameborder="0" gesture="media" allowfullscreen=""></iframe>
