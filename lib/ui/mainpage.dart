@@ -61,7 +61,7 @@ class _mainState extends State<mainPage> {
                           autoPlay: true,
                           viewportFraction: 1.0,
                           enlargeCenterPage: false,
-                          aspectRatio: 16 / 13,
+                          aspectRatio: 16 / 11,
                         );
                     }
                     // unreachable

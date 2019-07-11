@@ -31,15 +31,19 @@ class Carouselcontent extends StatelessWidget {
               ),
               fit: BoxFit.cover)),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Flexible(
-              flex: 3,
-              child: Image.network(
-                poster,
-                height: 300,
-                fit: BoxFit.cover,
-              )),
+          Column(
+            children: <Widget>[
+              Flexible(
+                  flex: 3,
+                  child: Image.network(
+                    poster,
+                    height: 250,
+                    fit: BoxFit.cover,
+                  )),
+            ],
+          ),
           Flexible(
             flex: 4,
             child: Padding(

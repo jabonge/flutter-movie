@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:moving/ui/mainpage2.dart';
 
 import 'package:moving/ui/searchpage.dart';
 import './ui/mainpage.dart';
+import 'package:flutter/rendering.dart';
 
-void main() => runApp(MaterialApp(
-      theme: ThemeData.dark(),
-      home: MyApp(),
-    ));
+void main() {
+  //debugPaintSizeEnabled = true;
+  runApp(MaterialApp(
+    theme: ThemeData.dark(),
+    home: MyApp(),
+  ));
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -27,7 +32,7 @@ class MyApp extends StatelessWidget {
           )
         ],
       ),
-      body: mainPage(),
+      body: mainPage2(),
     );
   }
 }

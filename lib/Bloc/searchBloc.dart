@@ -5,19 +5,23 @@ import 'package:rxdart/rxdart.dart';
 import '../Repository/repo.dart';
 
 class SearchBloc {
-  // StreamController<String> _searchtext = StreamController();
-  // StreamController<int> _future = StreamController();
+  StreamController<String> _searchtext = StreamController();
+  StreamController<int> _future = StreamController();
+  StreamController<Movie> _searchmovie = StreamController();
 
-  // Stream<String> get textstream => _searchtext.stream;
-  // Stream<int> get moviestream => _future.stream;
-  // Function(String) get textadd => _searchtext.sink.add;
+  Stream<String> get textstream => _searchtext.stream;
+  Stream<int> get moviestream => _future.stream;
+  Stream<Movie> get searchmovie => _searchmovie.stream;
 
-  final _searchtext = PublishSubject<String>();
-  final _future = BehaviorSubject<int>();
-
-  Observable<String> get textstream => _searchtext.stream;
+  Function(Movie) get searchadd => _searchmovie.sink.add;
   Function(String) get textadd => _searchtext.sink.add;
-  Observable<int> get moviestream => _future.stream;
+
+  // final _searchtext = PublishSubject<String>();
+  // final _future = BehaviorSubject<int>();
+
+  // Observable<String> get textstream => _searchtext.stream;
+  // Function(String) get textadd => _searchtext.sink.add;
+  // Observable<int> get moviestream => _future.stream;
 
   final repo = Repository();
 
@@ -25,7 +29,6 @@ class SearchBloc {
           handleData: (value, sink) async {
         print(value);
         var movie = await repo.repoSearch(value);
-
         sink.add(count(movie));
       });
   //Stream get futurestr => Stream.fromFuture(getTotal(text));
@@ -38,6 +41,12 @@ class SearchBloc {
   void dispose() {
     _searchtext.close();
     _future.close();
+    _searchmovie.close();
+  }
+
+  void submit(value) async {
+    var movie = await repo.repoSearch(value);
+    searchadd(movie);
   }
 
   int count(Movie movie) {
@@ -53,5 +62,3 @@ class SearchBloc {
   // }
 
 }
-
-final bloc = SearchBloc();
